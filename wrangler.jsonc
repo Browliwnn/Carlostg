@@ -15,7 +15,7 @@
     "MAIL_FROM": "Web Carlos TG <web@carlostg.com>",
     "MAIL_TO_CONTACTO": "carlos.sanchez@carlostg.com,alejandro.sanchez@carlostg.com",
     "MAIL_TO_EMPLEO": "alejandro.sanchez@carlostg.com",
-    "ALLOWED_ORIGINS": "https://carlostg.tucuenta.workers.dev"
+    "ALLOWED_ORIGINS": "https://carlostg.forniteswap.workers.dev"
   },
   "observability": {
     "enabled": true,

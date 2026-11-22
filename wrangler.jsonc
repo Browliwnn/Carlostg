@@ -5,22 +5,18 @@
   "main": "src/index.js",
   "compatibility_date": "2025-11-01",
   "workers_dev": true,
-
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash",
     "run_worker_first": ["/api/*"]
   },
-
   "vars": {
     "MAIL_FROM": "Web Carlos TG <web@carlostg.com>",
     "MAIL_TO_CONTACTO": "carlos.sanchez@carlostg.com,alejandro.sanchez@carlostg.com",
     "MAIL_TO_EMPLEO": "alejandro.sanchez@carlostg.com",
-    "ALLOWED_ORIGINS": "https://carlostg.com,https://www.carlostg.com"
+    "ALLOWED_ORIGINS": "https://carlostg.tucuenta.workers.dev"
   },
-
-  // ...
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1,
@@ -38,4 +34,6 @@
     },
     "issue_detection": {
       "enabled": true
+    }
+  }
 }

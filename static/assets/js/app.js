@@ -68,4 +68,16 @@
     } catch (err) { msg.className = 'form-msg err'; msg.textContent = err.message || 'No se pudo enviar. Llámanos al 619 02 09 72.'; }
     btn.disabled = false; window.turnstile?.reset();
   }));
+
+  /* Cabecera: sombra al hacer scroll + barra de progreso de lectura */
+  const head = $('.head'), prog = $('.prog'); let tick = false;
+  const onScroll = () => { tick = false; const y = scrollY, h = document.documentElement.scrollHeight - innerHeight; head?.classList.toggle('sc', y > 30); prog?.style.setProperty('--p', h > 0 ? Math.min(y / h, 1) : 0); };
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(onScroll); } }, { passive: true }); onScroll();
+  menu?.addEventListener('click', (e) => { if (e.target.closest('a') && innerWidth <= 1080) { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); } });
+
+  /* Aparición al hacer scroll + contadores */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const count = (el) => { const to = +el.dataset.count; if (reduce) { el.textContent = to; return; } const t0 = performance.now(); const step = (t) => { const k = Math.min((t - t0) / 1500, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); }; el.textContent = 0; requestAnimationFrame(step); };
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); if (e.target.dataset.count) count(e.target); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }) : null;
+  $$('.rv, [data-count]').forEach((el) => (io ? io.observe(el) : el.classList.add('in')));
 })();

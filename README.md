@@ -3,7 +3,7 @@
 Sitio estático generado con `build.mjs` (sin dependencias) + Worker de Cloudflare para `/api/fuel` (precio del carburante) y `/api/contact` (formularios).
 
 ## 1. Imágenes
-Ya están incluidas en `static/assets/img` (tus fotos, logo con fondo transparente y certificaciones recortadas). No hay que descargar nada. Para cambiar una foto, sustituye el archivo con el mismo nombre.
+Ya están incluidas en `static/assets/img` (tus fotos en dos tamaños, logo transparente y certificaciones). Para cambiar una foto, sustituye `nombre.jpg` y `nombre-800.jpg` (versión de 800 px) y actualiza `manifest.json` con su ancho y alto. Las tipografías (Bitter y DM Sans, licencia OFL) están en `static/assets/fonts`, sin depender de Google.
 
 ```bash
 npm install
